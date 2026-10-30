@@ -1,0 +1,45 @@
+// Day 5 - Student Grade Calculator
+// C Language Practice
+
+#include <stdio.h>
+
+char calculateGrade(float marks) {
+    if (marks >= 90)
+        return 'A';
+    else if (marks >= 80)
+        return 'B';
+    else if (marks >= 70)
+        return 'C';
+    else if (marks >= 60)
+        return 'D';
+    else
+        return 'F';
+}
+
+int main() {
+    int n;
+    float marks, total = 0, average;
+
+    printf("===== Student Grade Calculator =====\n");
+
+    printf("Enter number of subjects: ");
+    scanf("%d", &n);
+
+    for (int i = 1; i <= n; i++) {
+        printf("Enter marks for subject %d: ", i);
+        scanf("%f", &marks);
+
+        total += marks;
+
+        printf("Grade: %c\n", calculateGrade(marks));
+    }
+
+    average = total / n;
+
+    printf("\n===== Result =====\n");
+    printf("Total Marks: %.2f\n", total);
+    printf("Average Marks: %.2f\n", average);
+    printf("Overall Grade: %c\n", calculateGrade(average));
+
+    return 0;
+}
